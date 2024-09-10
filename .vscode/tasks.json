@@ -1,0 +1,94 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "configure",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "-DCMAKE_BUILD_TYPE=Debug",
+                "-Bbuild",
+                "-DCMAKE_TOOLCHAIN_FILE=\"cmake/nrf51-cmake/arm-none-eabi.cmake\""
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "build"
+        },
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "build",
+                "--parallel",
+                "-t",
+                "all"
+            ],
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "configure"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "flash_binary",
+            "type": "shell",
+            "command": "gdb",
+            "args": [
+                "--batch",
+                "-se=build/main",
+                "-ex", "set architecture auto",
+                "-ex", "tar ext /dev/ttyBmpGdb",
+                "-ex", "mon tpwr e",
+                "-ex", "mon connect_srst e",
+                "-ex", "mon swdp_scan",
+                "-ex", "attach 1",
+                "-ex", "load",
+                "-ex", "compare-sections",
+                "-ex", "detach",
+                "-ex", "q"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "dependsOn": [
+                "build"
+            ],
+            "dependsOrder": "sequence",
+            "group": "none",
+            "problemMatcher": []
+        },
+        {
+            "label": "enable_power",
+            "type": "shell",
+            "command": "gdb",
+            "args": [
+                "--batch",
+                "-ex", "tar ext /dev/ttyBmpGdb",
+                "-ex", "mon tpwr e",
+                "-ex", "q"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "disable_power",
+            "type": "shell",
+            "command": "gdb",
+            "args": [
+                "--batch",
+                "-ex", "tar ext /dev/ttyBmpGdb",
+                "-ex", "mon tpwr d",
+                "-ex", "q"
+            ],
+            "problemMatcher": []
+        }
+    ]
+}

@@ -1,0 +1,44 @@
+{
+    "configurations": [
+        {
+            "name": "NRF51822",
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceRoot}/build/main",
+            "request": "attach",
+            "type": "cortex-debug",
+            "servertype": "bmp",
+            "interface": "swd",
+            "gdbPath": "/usr/bin/gdb",
+            "device": "NRF51822",
+            "powerOverBMP": "enable",
+            "svdFile": "${workspaceFolder}/../nrf51SDK/nRF5_SDK_12.3.0_d7731ad/svd/nrf51.svd",
+            // "preRestartCommands": [
+            //     "enable breakpoint",
+            //     "break main"
+            // ],
+            "runToEntryPoint": "main",
+            "BMPGDBSerialPort": "/dev/ttyBmpGdb",
+            "showDevDebugOutput": "raw"
+        },
+        {
+            "name": "example",
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceFolder}/../nrf51SDK/nRF5_SDK_12.3.0_d7731ad/examples/ble_peripheral/ble_app_beacon/pca20006/s130/armgcc/_build/nrf51822_xxaa.out",
+            "request": "attach",
+            "type": "cortex-debug",
+            "servertype": "bmp",
+            "interface": "swd",
+            "gdbPath": "gdb-multiarch",
+            "device": "NRF51822",
+            "powerOverBMP": "enable",
+            "svdFile": "${workspaceFolder}/../nrf51SDK/nRF5_SDK_12.3.0_d7731ad/svd/nrf51.svd",
+            "runToEntryPoint": "main",
+            "BMPGDBSerialPort": "/dev/ttyACM0",
+            "preRestartCommands": [
+                "enable breakpoint",
+                "break main"
+            ]
+        }
+    ],
+    "version": "2.0.0"
+}
