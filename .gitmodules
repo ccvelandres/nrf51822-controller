@@ -1,0 +1,3 @@
+[submodule "cmake/nrf51-cmake"]
+	path = cmake/nrf51-cmake
+	url = https://github.com/ccvelandres/nrf51-cmake
