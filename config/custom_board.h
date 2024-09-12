@@ -44,42 +44,37 @@
 extern "C" {
 #endif
 
+// CJMCU-8223
 #include "nrf_gpio.h"
 
-#define LEDS_NUMBER    2
+#define LEDS_NUMBER    1
 
-#define LED_RGB_RED    23
-#define LED_RGB_BLUE   24
+#define LED_RGB_RED    7
 
 #define LEDS_ACTIVE_STATE 0
 
 #define BSP_LED_0 LED_RGB_RED
-#define BSP_LED_1 LED_RGB_BLUE
 
-#define LEDS_LIST { LED_RGB_RED, LED_RGB_BLUE}
+#define LEDS_LIST { LED_RGB_RED}
 
 #define LEDS_INV_MASK  LEDS_MASK
 
-#define BUTTON_0       24
-#define BUTTON_1       26
+#define BUTTON_0       5
+#define BUTTON_1       6
+#define BUTTON_2       7
+#define BUTTON_3       8
 #define BUTTON_PULL    NRF_GPIO_PIN_PULLUP
 
 #define BUTTONS_ACTIVE_STATE 0
 
 #define BSP_BUTTON_0   BUTTON_0
 #define BSP_BUTTON_1   BUTTON_1
+#define BSP_BUTTON_2   BUTTON_2
+#define BSP_BUTTON_3   BUTTON_3
 
-#define BUTTONS_NUMBER 0
+#define BUTTONS_NUMBER 4
 
-#define BUTTONS_LIST { BUTTON_0, BUTTON_1 }
-
-#define UART0_RX_PIN_NUMBER  24
-#define UART0_TX_PIN_NUMBER  30
-#define UART0_CTS_PIN_NUMBER 21
-#define UART0_RTS_PIN_NUMBER 11
-#define UART0_HWFC           false
-
-
+#define BUTTONS_LIST { BUTTON_0, BUTTON_1, BUTTON_2, BUTTON_3 }
 
 // Low frequency clock source to be used by the SoftDevice
 #ifdef S210

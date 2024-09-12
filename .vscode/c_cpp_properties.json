@@ -13,9 +13,6 @@
                 "${workspaceFolder}/../nrf51SDK/nRF5_SDK_12.3.0_d7731ad/components/softdevice/s130/headers"
             ],
             "defines": [
-                "BLE_STACK_SUPPORT_REQD",
-                "SOFTDEVICE_PRESENT",
-                "NRF_SD_BLE_API_VERSION=2"
             ],
             "compilerPath": "/bin/arm-none-eabi-gcc",
             "cStandard": "c99",

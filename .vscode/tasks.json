@@ -44,7 +44,37 @@
             "command": "gdb",
             "args": [
                 "--batch",
-                "-se=build/main",
+                "-ex", "set architecture auto",
+                "-ex", "tar ext /dev/ttyBmpGdb",
+                "-ex", "mon tpwr e",
+                "-ex", "mon connect_srst e",
+                "-ex", "mon swdp_scan",
+                "-ex", "attach 1",
+                "-ex", "load build/main.hex",
+                "-ex", "compare-sections",
+                "-ex", "load build/s130_nrf51_2.0.1_softdevice.hex",
+                "-ex", "compare-sections",
+                "-ex", "mon reset",
+                "-ex", "detach",
+                "-ex", "q"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "dependsOn": [
+                "build"
+            ],
+            "dependsOrder": "sequence",
+            "group": "none",
+            "problemMatcher": []
+        },
+        {
+            "label": "flash_hex",
+            "type": "shell",
+            "command": "gdb",
+            "args": [
+                "--batch",
+                "-se=${input:hexfile}",
                 "-ex", "set architecture auto",
                 "-ex", "tar ext /dev/ttyBmpGdb",
                 "-ex", "mon tpwr e",
@@ -89,6 +119,17 @@
                 "-ex", "q"
             ],
             "problemMatcher": []
+        }
+    ],
+    "inputs": [
+        {
+            "id": "hexfile",
+            "type": "pickString",
+            "description": "hexfile to load",
+            "options": [
+                "build/main.hex",
+                "build/main_s130.hex",
+            ]
         }
     ]
 }

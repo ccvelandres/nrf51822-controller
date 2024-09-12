@@ -12,10 +12,10 @@
             "device": "NRF51822",
             "powerOverBMP": "enable",
             "svdFile": "${workspaceFolder}/../nrf51SDK/nRF5_SDK_12.3.0_d7731ad/svd/nrf51.svd",
-            // "preRestartCommands": [
-            //     "enable breakpoint",
-            //     "break main"
-            // ],
+            "preRestartCommands": [
+                "enable breakpoint",
+                "break main"
+            ],
             "runToEntryPoint": "main",
             "BMPGDBSerialPort": "/dev/ttyBmpGdb",
             "showDevDebugOutput": "raw"

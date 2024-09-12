@@ -18,7 +18,13 @@
             "nrf_gpio.h": "c",
             "nrf_peripherals.h": "c",
             "nrf_assert.h": "c",
-            "nrf_log_ctrl.h": "c"
+            "nrf_log_ctrl.h": "c",
+            "ble_advdata.h": "c",
+            "sdk_common.h": "c",
+            "nrf_drv_uart.h": "c",
+            "system_error": "c",
+            "app_scheduler.h": "c",
+            "boards.h": "c"
         }
         
     }
