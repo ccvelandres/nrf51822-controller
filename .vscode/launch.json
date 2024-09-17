@@ -8,7 +8,7 @@
             "type": "cortex-debug",
             "servertype": "bmp",
             "interface": "swd",
-            "gdbPath": "/usr/bin/gdb",
+            "gdbPath": "arm-none-eabi-gdb",
             "device": "NRF51822",
             "powerOverBMP": "enable",
             "svdFile": "${workspaceFolder}/../nrf51SDK/nRF5_SDK_12.3.0_d7731ad/svd/nrf51.svd",
@@ -18,7 +18,7 @@
             ],
             "runToEntryPoint": "main",
             "BMPGDBSerialPort": "/dev/ttyBmpGdb",
-            "showDevDebugOutput": "raw"
+            "showDevDebugOutput": "raw",
         },
         {
             "name": "example",

@@ -13,7 +13,7 @@
                 "-DCMAKE_TOOLCHAIN_FILE=\"cmake/nrf51-cmake/arm-none-eabi.cmake\""
             ],
             "options": {
-                "cwd": "${workspaceFolder}"
+                "cwd": "${workspaceFolder}",
             },
             "group": "build"
         },
@@ -41,22 +41,20 @@
         {
             "label": "flash_binary",
             "type": "shell",
-            "command": "gdb",
+            "command": "arm-none-eabi-gdb",
             "args": [
                 "--batch",
                 "-ex", "set architecture auto",
                 "-ex", "tar ext /dev/ttyBmpGdb",
                 "-ex", "mon tpwr e",
                 "-ex", "mon connect_srst e",
-                "-ex", "mon swdp_scan",
+                "-ex", "mon swd_scan",
                 "-ex", "attach 1",
-                "-ex", "load build/main.hex",
-                "-ex", "compare-sections",
                 "-ex", "load build/s130_nrf51_2.0.1_softdevice.hex",
-                "-ex", "compare-sections",
+                "-ex", "load build/main.hex",
                 "-ex", "mon reset",
                 "-ex", "detach",
-                "-ex", "q"
+                "-ex", "mon tpwr d"
             ],
             "options": {
                 "cwd": "${workspaceFolder}"
@@ -71,7 +69,7 @@
         {
             "label": "flash_hex",
             "type": "shell",
-            "command": "gdb",
+            "command": "arm-none-eabi-gdb",
             "args": [
                 "--batch",
                 "-se=${input:hexfile}",
@@ -99,7 +97,7 @@
         {
             "label": "enable_power",
             "type": "shell",
-            "command": "gdb",
+            "command": "arm-none-eabi-gdb",
             "args": [
                 "--batch",
                 "-ex", "tar ext /dev/ttyBmpGdb",
@@ -111,7 +109,7 @@
         {
             "label": "disable_power",
             "type": "shell",
-            "command": "gdb",
+            "command": "arm-none-eabi-gdb",
             "args": [
                 "--batch",
                 "-ex", "tar ext /dev/ttyBmpGdb",

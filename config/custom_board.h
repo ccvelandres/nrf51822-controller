@@ -72,7 +72,7 @@ extern "C" {
 #define BSP_BUTTON_2   BUTTON_2
 #define BSP_BUTTON_3   BUTTON_3
 
-#define BUTTONS_NUMBER 4
+#define BUTTONS_NUMBER 0
 
 #define BUTTONS_LIST { BUTTON_0, BUTTON_1, BUTTON_2, BUTTON_3 }
 

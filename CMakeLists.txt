@@ -13,7 +13,8 @@ add_compile_options(-DUSE_APP_CONFIG)
 include(cmake/nrf51-cmake/nrf5.cmake)
 
 add_executable(main 
-    src/main.c)
+    src/main.c
+    src/ble_rcontrol.c)
 
 nrf5_setup_exe(main)
 target_link_libraries(main PRIVATE
@@ -26,14 +27,15 @@ target_link_libraries(main PRIVATE
     # nrf5_library_bsp_btn_ble
     # nrf5_library_timer
     # nrf5_library_timersh
+    nrf5_library_util
     nrf5_library_log
-    # nrf5_library_fds
+    nrf5_library_fds
     # nrf5_library_fstorage
     nrf5_library_hardfault
     # nrf5_library_sensorsim
     # nrf5_ble_common
     nrf5_ble_ble_advertising
-    # nrf5_ble_peer_manager
+    nrf5_ble_peer_manager
     # nrf5_ble_service_hids
     # nrf5_ble_service_bas
     # nrf5_ble_service_dis

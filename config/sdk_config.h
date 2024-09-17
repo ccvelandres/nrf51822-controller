@@ -75,7 +75,7 @@
  
 
 #ifndef BLE_BAS_ENABLED
-#define BLE_BAS_ENABLED 1
+#define BLE_BAS_ENABLED 0
 #endif
 
 // <q> BLE_CSCS_ENABLED  - ble_cscs - Cycling Speed and Cadence Service
@@ -96,7 +96,7 @@
  
 
 #ifndef BLE_DIS_ENABLED
-#define BLE_DIS_ENABLED 1
+#define BLE_DIS_ENABLED 0
 #endif
 
 // <q> BLE_GLS_ENABLED  - ble_gls - Glucose Service
@@ -110,7 +110,7 @@
  
 
 #ifndef BLE_HIDS_ENABLED
-#define BLE_HIDS_ENABLED 1
+#define BLE_HIDS_ENABLED 0
 #endif
 
 // <e> BLE_HRS_C_ENABLED - ble_hrs_c - Heart Rate Service Client
@@ -2942,7 +2942,7 @@
 // <e> APP_SCHEDULER_ENABLED - app_scheduler - Events scheduler
 //==========================================================
 #ifndef APP_SCHEDULER_ENABLED
-#define APP_SCHEDULER_ENABLED 1
+#define APP_SCHEDULER_ENABLED 0
 #endif
 #if  APP_SCHEDULER_ENABLED
 // <q> APP_SCHEDULER_WITH_PAUSE  - Enabling pause feature

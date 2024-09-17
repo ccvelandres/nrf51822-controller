@@ -24,8 +24,35 @@
             "nrf_drv_uart.h": "c",
             "system_error": "c",
             "app_scheduler.h": "c",
-            "boards.h": "c"
+            "boards.h": "c",
+            "nrf_log.h": "c",
+            "ble_gatt.h": "c",
+            "fstorage.h": "c",
+            "ble_conn_params.h": "c"
+        },
+        "terminal.integrated.automationProfile.linux": {
+            "path": "bash",
+            "icon": "terminal-bash",
+        },
+        "terminal.integrated.profiles.linux": {
+            "bash": {
+                "path": "bash",
+                "icon": "terminal-bash",
+            },
+            "zsh": {
+                "path": "zsh"
+            },
+            "fish": {
+                "path": "fish"
+            },
+            "tmux": {
+                "path": "tmux",
+                "icon": "terminal-tmux"
+            },
+            "pwsh": {
+                "path": "pwsh",
+                "icon": "terminal-powershell"
+            }
         }
-        
     }
 }
