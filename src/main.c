@@ -581,6 +581,7 @@ static void advertising_init(void)
 
     advdata.name_type               = BLE_ADVDATA_FULL_NAME;
     advdata.include_appearance      = false;
+    advdata.le_role                 = BLE_ADVDATA_ROLE_ONLY_PERIPH;
     advdata.flags                   = BLE_GAP_ADV_FLAGS_LE_ONLY_GENERAL_DISC_MODE;
     advdata.uuids_complete.uuid_cnt = sizeof(m_adv_uuids) / sizeof(m_adv_uuids[0]);
     advdata.uuids_complete.p_uuids  = m_adv_uuids;
